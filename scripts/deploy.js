@@ -1,4 +1,10 @@
-import { ethers } from "hardhat";
+import { network } from "hardhat";
+
+// 使用 Hardhat 3 的新网络接口获取 ethers 实例
+const { ethers } = await network.connect({
+  network: "sepolia",
+  chainType: "l1",
+});
 
 async function main() {
   const [deployer] = await ethers.getSigners();
